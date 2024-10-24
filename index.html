@@ -9,15 +9,17 @@
   </head>
 
   <body>
+    
     <div class="container">
       <header>
         <nav>
+          <div class="overlay"></div>
           <img
             src="./assets/icons/logo.svg"
             alt="Dutch Digital Agencies logo"
           />
-          <button class="burger" aria-label="open/close burger menu" onclick="OpenBurger()"><div class="lines"></div></button>
-          <div class="burger-menu subtext">
+          <a href="#footer-menu" class="burger" aria-expanded="false" aria-controls="nav-items">menu<span class="lines"></span><span class="lines"></span><span class="lines"></span></a>
+          <div class="nav-items subtext">
             <ul>
               <li><a href="">over ons</a></li>
               <li><a href="">events</a></li>
@@ -586,7 +588,7 @@
         </section>
         <div class="cards-block"></div>
       </main>
-      <footer></footer>
+      <footer><div id="footer-menu"></div></footer>
     </div>
     <script src="./scripts/script.js"></script>
   </body>

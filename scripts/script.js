@@ -1,11 +1,14 @@
 const pageWithoutScroll = window.innerWidth - 15;
-const burgerMenu = document.querySelector('.burger-menu')
+const navItems = document.querySelector(".nav-items");
 const nav = document.querySelector("nav");
+const burger = document.querySelector(".burger");
+const overlay = document.querySelector(".overlay");
 let isScrolled = false;
+
 
 const checkScroll = () => {
   const scrolledDown = window.scrollY > 0;
-  
+
   if (scrolledDown && !isScrolled) {
     nav.classList.add("scrolled");
     isScrolled = true;
@@ -13,12 +16,16 @@ const checkScroll = () => {
     nav.classList.remove("scrolled");
     isScrolled = false;
   }
-}
-pageWithoutScroll > 660 && window.addEventListener("scroll", checkScroll)
+};
+pageWithoutScroll > 660 &&
+  window.addEventListener("scroll", checkScroll) &&
+  burgerMenu.addEventListener("click", OpenBurger);
 
-const OpenBurger = () => {
-console.log(burgerMenu);
-burgerMenu.classList.toggle('open')
-
-}
+const OpenBurger = (e) => {
+  console.log(navItems);
+  e.preventDefault();
+  overlay.classList.toggle("open");
+  navItems.classList.toggle("open");
+};
+burger.addEventListener("click", OpenBurger);
 // switch to intersectionObserver
