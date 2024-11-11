@@ -241,6 +241,9 @@ main {
   display: flex;
   flex-direction: column;
   transform: translateX(0);
+  > div {
+    flex-wrap: wrap;
+  }
   div {
     display: flex;
     /* md+ screen */
@@ -253,7 +256,7 @@ main {
     }
   }
   div:nth-child(1) {
-    transform: translateX(-100%);
+    /* transform: translateX(-100%); */
     /* animation: moveLeft 5s linear infinite; */
   }
   div:nth-child(2) {
@@ -456,6 +459,7 @@ header img {
 
 /* container */
 .container {
+  overflow-x: hidden;
   max-width: 1440px;
   min-height: calc(100% - 18px);
   width: 100%;
