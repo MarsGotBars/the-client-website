@@ -459,7 +459,6 @@ header img {
 
 /* container */
 .container {
-  overflow-x: hidden;
   max-width: 1440px;
   min-height: calc(100% - 18px);
   width: 100%;
