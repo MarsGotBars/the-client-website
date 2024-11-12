@@ -61,7 +61,7 @@ h1,
 
 h2,
 .xxl {
-  font-size: clamp(2.5rem, 5vw, 64px);
+  font-size: clamp(2.5rem, 5vw, var(--size-xl));
   font-weight: 600; /* stays semibold */
   letter-spacing: var(--letter-spacing);
   line-height: 2.5rem;
@@ -69,16 +69,16 @@ h2,
 
 h3,
 .xl {
-  font-size: clamp(var(--size-md), 4vw, 48px);
+  font-size: clamp(var(--size-md), 4vw, 3rem);
   font-weight: 400; /* regular on sm | semiBold on md+ */
   letter-spacing: var(--letter-spacing);
-  line-height: clamp(24px, 3.5vw, 1em);
+  line-height: clamp(1.5rem, 3.5vw, 1em);
   text-transform: uppercase;
 }
 
 h4,
 .lg {
-  font-size: clamp(24px, 3.5vw, var(--size-md));
+  font-size: clamp(1.5rem, 3.5vw, var(--size-md));
   font-weight: 400; /* stays regular */
   letter-spacing: 0;
   line-height: clamp(var(--size-md), 3vw, 2.5rem);
@@ -87,7 +87,7 @@ h4,
 h5,
 h6,
 .md {
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 600; /* stays semibold */
   letter-spacing: 0;
   line-height: clamp(var(--size-md), 2vw, 2.5rem);
@@ -100,10 +100,10 @@ h6,
 
 p,
 .sm {
-  font-size: clamp(16px, 2.5vw, 18px);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   font-weight: 400; /* stays regular */
   letter-spacing: 0;
-  line-height: clamp(24px, 2.5vw, var(--size-md));
+  line-height: clamp(1.5rem, 2.5vw, var(--size-md));
 }
 
 .subtext,
@@ -112,7 +112,7 @@ p:has(time) {
   font-size: 16px;
   font-weight: 400; /* stays regular */
   letter-spacing: var(--letter-spacing);
-  line-height: 24px;
+  line-height: 1.5rem;
   font-family: var(--secondary-font);
 }
 

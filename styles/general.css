@@ -1,7 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap"); */
 /* ! replace this eventually */
 /* variables */
-:root{
+:root {
   --linear-slider: 10s linear infinite;
 }
 body {
@@ -65,7 +65,7 @@ a {
     display: grid;
     place-content: center;
   }
-  svg > path{
+  svg > path {
     stroke: rgba(var(--black));
   }
 }
@@ -109,10 +109,10 @@ main {
   display: flex;
   flex-direction: column;
   transform: translateX(0);
-  .group:nth-child(1){
+  .group:nth-child(1) {
     animation: moveLeft var(--linear-slider);
   }
-  .group:nth-child(2){
+  .group:nth-child(2) {
     transform: translateX(-50%);
     animation: moveRight var(--linear-slider);
   }
@@ -137,7 +137,7 @@ main {
   }
 }
 @keyframes moveRight {
-  to{
+  to {
     transform: translateX(0);
   }
 }
@@ -242,6 +242,12 @@ main {
       div {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem 0;
+        p {
+          display: flex;
+          flex-wrap: wrap;
+        }
       }
     }
     li:last-child {
@@ -289,13 +295,17 @@ main {
         display: inline-block;
         width: 20%;
         text-transform: uppercase;
+        width: fit-content;
       }
       .group {
-        gap: 0;
+        gap: 1rem 0;
         display: flex;
         width: 100%;
+        flex-wrap: wrap;
         > * {
-          width: 33%;
+          min-width: 150px;
+          max-width: 33%;
+          width: 100%;
         }
       }
       a {
@@ -324,6 +334,7 @@ header {
 header img {
   min-height: 40px;
   max-height: 60px;
+  height: 100%;
 }
 
 /* container */
@@ -441,6 +452,9 @@ section {
     top: 16px;
 
     /* hide de borders van de main */
+    img {
+      max-height: 80px;
+    }
   }
 
   nav {
@@ -484,6 +498,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   .companies-block {
     margin-left: -16px;
     margin-right: -16px;
+    /* ! fix dit ! */
     @media (min-width: 769px) {
       margin-left: -48px;
       margin-right: -48px;
@@ -661,10 +676,6 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   }
   /* end of vacancy block */
 }
-header img {
-  max-height: 80px;
-}
-
 ::selection {
   background-color: rgba(var(--important));
   color: rgba(var(--white));
