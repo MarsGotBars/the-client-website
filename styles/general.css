@@ -1,7 +1,9 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap"); */
 /* ! replace this eventually */
 /* variables */
-
+:root{
+  --linear-slider: 10s linear infinite;
+}
 body {
   display: flex;
   justify-content: center;
@@ -107,6 +109,13 @@ main {
   display: flex;
   flex-direction: column;
   transform: translateX(0);
+  .group:nth-child(1){
+    animation: moveLeft var(--linear-slider);
+  }
+  .group:nth-child(2){
+    transform: translateX(-50%);
+    animation: moveRight var(--linear-slider);
+  }
   > div {
     flex-wrap: wrap;
   }
@@ -114,35 +123,24 @@ main {
     display: flex;
     /* md+ screen */
     img {
-      /* aspect-ratio: 1; */
+      aspect-ratio: 1;
       min-width: clamp(120px, 15vw, 176px);
       min-height: clamp(120px, 15vw, 176px);
       object-fit: cover; /* Cover the entire area, cropping if necessary */
       display: block; /* Remove bottom whitespace */
     }
   }
-  div > group:nth-child(1) {
-    transform: translateX(-50%);
-    animation: moveLeft 4s linear infinite;
-  }
-  div:nth-child(2) {
-    /* transform: translateX(-100vw);
-    animation: moveRight 10s linear infinite; */
-  }
 }
 @keyframes moveLeft {
   to {
-    /* transform: translateX(-100%); */
+    transform: translateX(-50%);
   }
 }
-/* @keyframes moveRight {
-  from{
-    transform: translateX(-100%);
-  }
+@keyframes moveRight {
   to{
     transform: translateX(0);
   }
-} */
+}
 
 /* end of companies block */
 
