@@ -1,46 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap"); */
 /* ! replace this eventually */
 /* variables */
 :root {
-  --primary-font: "Archivo", verdana;
-  --secondary-font: "Martian mono", sans-serif;
-  --white: 255, 255, 255;
-  --black: 34, 34, 38;
-  --grey: 102, 102, 102;
-  --blue: 54, 75, 247;
-  --important: 247, 225, 159;
-  --letter-spacing: -0.04em; /* -4% van de font size */
-
-  /* width */
-  --minimum-size: 660px;
-  --burger-size: 1080px;
-
-  /* spacing */
-  --size-xs: 0.5rem;
-  --size-sm: 1rem;
-  --size-md: 2rem;
-  --size-lg: 3rem;
-  --size-xl: 4rem;
-  --size-xxl: 6rem;
-
-  /* animation */
-  --bounce: 0.3s cubic-bezier(0.67, -0.7, 0.39, 1.75);
-  background: rgba(var(--white));
-  font-family: var(--primary-font);
+  --linear-slider: 10s linear infinite;
 }
-
-/* CSS reset */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  min-height: 100vh;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -102,6 +65,9 @@ a {
     display: grid;
     place-content: center;
   }
+  svg > path {
+    stroke: rgba(var(--black));
+  }
 }
 a > div > img {
   transition: var(--bounce);
@@ -113,104 +79,6 @@ a:hover > div > img {
 a:active {
   background-color: rgba(var(--important));
 }
-
-/* typography sm */
-h1,
-.xxxl {
-  font-size: clamp(var(--size-lg), 6vw, var(--size-xxl));
-  font-weight: 600; /* stays semibold */
-  letter-spacing: var(--letter-spacing);
-  line-height: clamp(1em, 5vw, var(--size-xxl));
-  text-transform: uppercase;
-}
-
-h2,
-.xxl {
-  font-size: clamp(2.5rem, 5vw, 64px);
-  font-weight: 600; /* stays semibold */
-  letter-spacing: var(--letter-spacing);
-  line-height: 2.5rem;
-}
-
-h3,
-.xl {
-  font-size: clamp(var(--size-md), 4vw, 48px);
-  font-weight: 400; /* regular on sm | semiBold on md+ */
-  letter-spacing: var(--letter-spacing);
-  line-height: clamp(24px, 3.5vw, 1em);
-  text-transform: uppercase;
-}
-
-h4,
-.lg {
-  font-size: clamp(24px, 3.5vw, var(--size-md));
-  font-weight: 400; /* stays regular */
-  letter-spacing: 0;
-  line-height: clamp(var(--size-md), 3vw, 2.5rem);
-}
-
-h5,
-h6,
-.md {
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 600; /* stays semibold */
-  letter-spacing: 0;
-  line-height: clamp(var(--size-md), 2vw, 2.5rem);
-}
-
-h6,
-.light {
-  font-weight: 400; /* stays regular */
-}
-
-p,
-.sm {
-  font-size: clamp(16px, 2.5vw, 18px);
-  font-weight: 400; /* stays regular */
-  letter-spacing: 0;
-  line-height: clamp(24px, 2.5vw, var(--size-md));
-}
-
-.subtext,
-.xs,
-p:has(time) {
-  font-size: 16px;
-  font-weight: 400; /* stays regular */
-  letter-spacing: var(--letter-spacing);
-  line-height: 24px;
-  font-family: var(--secondary-font);
-}
-
-p:has(time) {
-  text-transform: uppercase;
-}
-
-time::after {
-  content: "/";
-  padding: 0 0.5rem;
-}
-
-.label {
-  font-family: var(--secondary-font);
-  font-weight: 300;
-  letter-spacing: -0.06em;
-  border: 1px solid rgba(var(--black));
-  text-transform: uppercase;
-  padding: 0 4px;
-}
-
-.neutral {
-  font-weight: 400;
-}
-
-.semi-bold {
-  font-weight: 600;
-}
-
-.bold {
-  font-weight: 700;
-}
-/* end typography */
 
 /* content */
 main > * {
@@ -240,6 +108,17 @@ main {
   border-width: 1px 0;
   display: flex;
   flex-direction: column;
+  transform: translateX(0);
+  .group:nth-child(1) {
+    animation: moveLeft var(--linear-slider);
+  }
+  .group:nth-child(2) {
+    transform: translateX(-50%);
+    animation: moveRight var(--linear-slider);
+  }
+  > div {
+    flex-wrap: wrap;
+  }
   div {
     display: flex;
     /* md+ screen */
@@ -252,9 +131,15 @@ main {
     }
   }
 }
-div:nth-child(2) {
-  /* temp */
-  justify-content: center;
+@keyframes moveLeft {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes moveRight {
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* end of companies block */
@@ -271,7 +156,7 @@ div:nth-child(2) {
   span:nth-child(1) {
     width: fit-content;
   }
-  div{
+  div {
     flex-direction: column;
     @media (min-width: 769px) {
       flex-direction: row;
@@ -288,7 +173,7 @@ div:nth-child(2) {
   }
 }
 .content-block :not(h1) span:not(a > span) {
-  color: rgba(204, 0, 0, 1)
+  color: rgba(204, 0, 0, 1);
 }
 .content-block > div:not(:has(h1)) {
   display: flex;
@@ -312,8 +197,12 @@ div:nth-child(2) {
   flex-direction: column;
   border: 1px solid rgba(var(--black));
   border-width: 1px 0;
-  margin-left: -48px;
-  margin-right: -48px;
+  margin-left: -16px;
+  margin-right: -16px;
+  @media (min-width: 769px) {
+    margin-left: -48px;
+    margin-right: -48px;
+  }
   > div {
     display: flex;
     flex-direction: column;
@@ -353,6 +242,12 @@ div:nth-child(2) {
       div {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem 0;
+        p {
+          display: flex;
+          flex-wrap: wrap;
+        }
       }
     }
     li:last-child {
@@ -369,8 +264,12 @@ div:nth-child(2) {
 /* vacancy block */
 /* ? ombouwen naar grid ? */
 .vacancy-block {
-  margin-left: -48px;
-  margin-right: -48px;
+  margin-left: -16px;
+  margin-right: -16px;
+  @media (min-width: 769px) {
+    margin-left: -48px;
+    margin-right: -48px;
+  }
   border: 1px solid rgba(var(--black));
   border-width: 1px 0;
   padding: 0 3rem;
@@ -396,13 +295,17 @@ div:nth-child(2) {
         display: inline-block;
         width: 20%;
         text-transform: uppercase;
+        width: fit-content;
       }
       .group {
-        gap: 0;
+        gap: 1rem 0;
         display: flex;
         width: 100%;
+        flex-wrap: wrap;
         > * {
-          width: 33%;
+          min-width: 150px;
+          max-width: 33%;
+          width: 100%;
         }
       }
       a {
@@ -431,6 +334,7 @@ header {
 header img {
   min-height: 40px;
   max-height: 60px;
+  height: 100%;
 }
 
 /* container */
@@ -486,7 +390,7 @@ nav {
       li {
         a {
           color: rgba(var(--black));
-          &.active{
+          &.active {
             color: rgba(var(--blue));
             font-weight: 700;
           }
@@ -506,7 +410,7 @@ nav {
     right: 0;
     top: 0;
   }
-  > a {
+  > a:has(:not(img)) {
     text-align: center;
     height: 100%;
     aspect-ratio: 1;
@@ -548,6 +452,9 @@ section {
     top: 16px;
 
     /* hide de borders van de main */
+    img {
+      max-height: 80px;
+    }
   }
 
   nav {
@@ -556,10 +463,10 @@ section {
     border: 1px solid rgba(var(--black));
     .nav-items {
       display: flex;
-      top: 16px;
     }
+    top: 0;
     .nav-items.open {
-      top: 16px;
+      top: 0;
     }
   }
 
@@ -589,8 +496,13 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
     grid-column: 3 / 11;
   }
   .companies-block {
-    margin-left: -48px;
-    margin-right: -48px;
+    margin-left: -16px;
+    margin-right: -16px;
+    /* ! fix dit ! */
+    @media (min-width: 769px) {
+      margin-left: -48px;
+      margin-right: -48px;
+    }
   }
 
   .events-block {
@@ -712,8 +624,12 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   /* vacancy block */
   /* ? ombouwen naar grid ? */
   .vacancy-block {
-    margin-left: -48px;
-    margin-right: -48px;
+    margin-left: -16px;
+    margin-right: -16px;
+    @media (min-width: 769px) {
+      margin-left: -48px;
+      margin-right: -48px;
+    }
     border: 1px solid rgba(var(--black));
     border-width: 1px 0;
     padding: 0 3rem;
@@ -760,10 +676,6 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   }
   /* end of vacancy block */
 }
-header img {
-  max-height: 80px;
-}
-
 ::selection {
   background-color: rgba(var(--important));
   color: rgba(var(--white));
