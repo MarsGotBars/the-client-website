@@ -113,10 +113,16 @@ main {
   transform: translateX(0);
   .group:nth-child(1) {
     animation: moveLeft var(--linear-slider);
+    &:hover{
+      animation-play-state: paused;
+    }
   }
   .group:nth-child(2) {
     transform: translateX(-50%);
     animation: moveRight var(--linear-slider);
+    &:hover{
+      animation-play-state: paused;
+    }
   }
   > div {
     flex-wrap: wrap;
