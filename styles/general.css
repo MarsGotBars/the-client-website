@@ -26,13 +26,13 @@ body {
 }
 
 a {
-  color: rgba(var(--blue));
+  color: var(--blue);
   text-decoration: none;
   position: relative;
   font-family: var(--secondary-font);
   text-transform: uppercase;
   svg > path {
-    stroke: rgba(var(--blue));
+    stroke: var(--blue);
   }
 }
 .arrow {
@@ -48,13 +48,19 @@ a {
 }
 
 .btn {
+  align-items: center;
+  background: var(--white);
   display: flex;
   height: 48px;
-  color: rgba(var(--black));
-  border: 1px solid rgba(var(--black));
+  color: var(--black);
+  border: 1px solid var(--black);
   stroke: initial;
+  > * {
+    display: grid;
+    place-content: center;
+  }
   span {
-    border-right: 1px solid rgba(var(--black));
+    border-right: 1px solid var(--black);
     padding: 14px 16px;
     height: 100%;
   }
@@ -62,12 +68,11 @@ a {
     height: 100%;
     width: 48px;
     height: 48px;
-    display: grid;
-    place-content: center;
   }
   svg > path {
-    stroke: rgba(var(--black));
+    stroke: var(--black);
   }
+  cursor: pointer;
 }
 
 a > div > img {
@@ -79,7 +84,7 @@ a:hover > div > img {
 }
 
 a:active {
-  background-color: rgba(var(--important));
+  background-color: var(--important);
 }
 
 /* content */
@@ -106,7 +111,7 @@ main {
   height: fit-content;
   margin-left: -16px;
   margin-right: -16px;
-  border: 1px solid rgba(var(--black));
+  border: 1px solid var(--black);
   border-width: 1px 0;
   display: flex;
   flex-direction: column;
@@ -203,7 +208,7 @@ main {
 .events-block {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(var(--black));
+  border: 1px solid var(--black);
   border-width: 1px 0;
   margin-left: -16px;
   margin-right: -16px;
@@ -214,7 +219,7 @@ main {
   > div {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(var(--black));
+    border-bottom: 1px solid var(--black);
     padding: 3.375rem;
     gap: 2rem;
     img {
@@ -263,7 +268,7 @@ main {
     }
     li + li {
       padding-top: 2rem;
-      border-top: 1px solid rgba(var(--black));
+      border-top: 1px solid var(--black);
     }
   }
 }
@@ -278,7 +283,7 @@ main {
     margin-left: -48px;
     margin-right: -48px;
   }
-  border: 1px solid rgba(var(--black));
+  border: 1px solid var(--black);
   border-width: 1px 0;
   padding: 0 3rem;
   flex-direction: column;
@@ -328,7 +333,7 @@ main {
     }
   }
   li + li {
-    border-top: 1px solid rgba(var(--black));
+    border-top: 1px solid var(--black);
   }
 }
 /* end of vacancy block */
@@ -337,7 +342,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 -16px 0 0 rgba(var(--white));
+  box-shadow: 0 -16px 0 0 var(--white);
 }
 header img {
   min-height: 40px;
@@ -359,19 +364,19 @@ nav {
   position: relative;
   height: 80px;
   padding: 12px 14px;
-  background: rgba(var(--white));
+  background: var(--white);
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(var(--black));
+  border-bottom: 1px solid var(--black);
   position: relative;
   /* overflow: hidden; */
   .nav-items {
     max-width: 360px;
     width: 100%;
     z-index: 30;
-    border-top: 1px solid rgba(var(--black));
+    border-top: 1px solid var(--black);
     padding: 0 24px;
-    background: rgba(var(--white));
+    background: var(--white);
     top: 0;
     height: 100%;
     right: -376px;
@@ -383,7 +388,7 @@ nav {
     ul {
       padding: 48px 0;
       &:first-of-type {
-        border-bottom: 1px solid rgba(var(--black));
+        border-bottom: 1px solid var(--black);
         > * {
           margin: 48px 0;
           &:first-of-type,
@@ -397,18 +402,18 @@ nav {
       }
       li {
         a {
-          color: rgba(var(--black));
+          color: var(--black);
           &.active {
-            color: rgba(var(--blue));
+            color: var(--blue);
             font-weight: 700;
           }
           span {
             padding: 0 0.25rem;
             font-size: 0.75rem;
-            background-color: rgba(var(--blue));
+            background-color: var(--blue);
             height: fit-content;
             line-height: 1rem;
-            color: rgba(var(--white));
+            color: var(--white);
           }
         }
       }
@@ -429,12 +434,12 @@ nav {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid rgba(var(--black));
+    border: 1px solid var(--black);
 
     .lines {
-      background: rgba(var(--blue));
+      background: var(--blue);
       display: block;
-      background: rgba(var(--black));
+      background: var(--black);
       height: 3px;
       width: 100%;
       &:nth-child(2) {
@@ -468,7 +473,7 @@ section {
   nav {
     padding: 0.75rem 1rem;
     height: fit-content;
-    border: 1px solid rgba(var(--black));
+    border: 1px solid var(--black);
     .nav-items {
       display: flex;
     }
@@ -490,8 +495,8 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
     height: 50%;
     top: 50%;
     left: 0;
-    border-left: 1px solid rgba(var(--black));
-    border-right: 1px solid rgba(var(--black));
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
     z-index: -1;
   }
 
@@ -525,7 +530,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
 
   main {
     padding: 0 48px;
-    border: 1px solid rgba(var(--black));
+    border: 1px solid var(--black);
     border-top: none;
     grid-template-columns: repeat(12, 1fr);
     width: 100%;
@@ -542,7 +547,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   nav.scrolled {
     height: 114px;
     padding: 16px 48px;
-    border-bottom: 1px solid rgba(var(--black));
+    border-bottom: 1px solid var(--black);
   }
   /* end of md+ nav | header */
   .vacancy-block {
@@ -572,7 +577,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
   }
 
   nav {
-    color: rgba(var(--black));
+    color: var(--black);
     width: 100%;
     .nav-items {
       position: initial;
@@ -621,7 +626,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       gap: 0;
       flex-direction: column;
       border-bottom: 0;
-      border-right: 1px solid rgba(var(--black));
+      border-right: 1px solid var(--black);
       img {
         width: 100%;
         margin-bottom: 1.5rem;
@@ -638,7 +643,7 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       margin-left: -48px;
       margin-right: -48px;
     }
-    border: 1px solid rgba(var(--black));
+    border: 1px solid var(--black);
     border-width: 1px 0;
     padding: 0 3rem;
     display: grid;
@@ -679,14 +684,14 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       }
     }
     li + li {
-      border-top: 1px solid rgba(var(--black));
+      border-top: 1px solid var(--black);
     }
   }
   /* end of vacancy block */
 }
 ::selection {
-  background-color: rgba(var(--important));
-  color: rgba(var(--white));
+  background-color: var(--important);
+  color: var(--white);
 }
 
 ul {
