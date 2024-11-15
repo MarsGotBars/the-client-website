@@ -487,17 +487,20 @@ section {
 stomme 'hack'
 maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
 */
-
-  header::after {
+  header::before, header::after{
     content: "";
+    background: var(--black);
     position: absolute;
-    width: calc(100% - 2px);
-    height: 50%;
-    top: 50%;
-    left: 0;
-    border-left: 1px solid var(--black);
-    border-right: 1px solid var(--black);
     z-index: -1;
+    top: 50%;
+    height: 50%;
+    width: 1px;
+  }
+  header::before{
+    left: 0;
+  }
+  header::after {
+    right: 0;
   }
 
   nav ul li span {
