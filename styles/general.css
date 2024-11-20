@@ -5,7 +5,7 @@
 body {
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 200vh;
 }
 
 .overlay {
@@ -45,6 +45,10 @@ a {
   gap: 0.5rem;
 }
 
+form{
+  display: flex;
+}
+
 .btn {
   align-items: center;
   background: var(--white);
@@ -57,7 +61,7 @@ a {
     display: grid;
     place-content: center;
   }
-  span {
+  span, summary {
     border-right: 1px solid var(--black);
     padding: 14px 16px;
     height: 100%;
@@ -71,6 +75,17 @@ a {
     stroke: var(--black);
   }
   cursor: pointer;
+}
+
+details.btn{
+  align-items: flex-start;
+  height: 100%;
+  max-height: 48px;
+  div{
+    height: auto;
+    width: auto;
+    
+  }
 }
 
 a > div > img {
@@ -397,7 +412,10 @@ section {
     /* zorgt ervoor dat de content / page layout niet shift */
     height: 178px; /* md+ */
     top: 16px;
-
+    pointer-events:none;
+    > * {
+      pointer-events: all;
+    }
     /* hide de borders van de main */
     img {
       max-height: 80px;
