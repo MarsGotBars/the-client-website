@@ -104,11 +104,7 @@ details.btn {
     width: auto;
   }
 }
-
-a > div > img {
-  transition: var(--bounce);
-}
-
+/* button animation, now to find a fitting animation for it... */
 a:hover > div > img {
   transform: translateX(5px);
 }
@@ -345,7 +341,8 @@ nav {
     background: var(--white);
     top: 0;
     height: 100%;
-    right: -376px;
+    right: 0;
+    transform: translateX(100%);
     position: fixed;
     transition: 0.3s ease 0.1s;
     display: flex;
@@ -386,8 +383,7 @@ nav {
     }
   }
   .nav-items.open {
-    right: 0;
-    top: 0;
+    transform: translateX(0);
   }
   > a:has(:not(img)) {
     text-align: center;
@@ -447,9 +443,6 @@ section {
       display: flex;
     }
     top: 0;
-    .nav-items.open {
-      top: 0;
-    }
   }
 
   /* 
@@ -542,7 +535,9 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       background: initial;
       flex-direction: row;
       border: none;
+      transform: unset;
       ul {
+        height: fit-content;
         display: flex;
         flex-direction: row;
         width: 100%;
