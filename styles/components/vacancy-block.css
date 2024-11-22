@@ -24,7 +24,7 @@
       grid-column: span 8;
       height: 100%;
       display: flex;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       align-items: center;
       gap: 1rem;
       span,
@@ -34,13 +34,18 @@
         text-transform: uppercase;
         width: fit-content;
       }
+      > span {
+        margin-right: auto;
+      }
       .group {
         gap: 1rem 0;
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         > * {
-          min-width: 200px;
+          overflow-wrap: break-word;
+          hyphens: auto;
+          min-width: 125px;
           max-width: 33%;
           width: 100%;
         }

@@ -1,8 +1,25 @@
-/* variables */
-:root {
-  --linear-slider: 10s linear infinite;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* variables */
 body {
+  --linear-slider: 10s linear infinite;
   display: flex;
   justify-content: center;
   min-height: 200vh;
@@ -45,7 +62,7 @@ a {
   gap: 0.5rem;
 }
 
-form{
+form {
   display: flex;
 }
 
@@ -61,7 +78,8 @@ form{
     display: grid;
     place-content: center;
   }
-  span, summary {
+  span,
+  summary {
     border-right: 1px solid var(--black);
     padding: 14px 16px;
     height: 100%;
@@ -77,14 +95,13 @@ form{
   cursor: pointer;
 }
 
-details.btn{
+details.btn {
   align-items: flex-start;
   height: 100%;
   max-height: 48px;
-  div{
+  div {
     height: auto;
     width: auto;
-    
   }
 }
 
@@ -412,7 +429,7 @@ section {
     /* zorgt ervoor dat de content / page layout niet shift */
     height: 178px; /* md+ */
     top: 16px;
-    pointer-events:none;
+    pointer-events: none;
     > * {
       pointer-events: all;
     }
@@ -574,11 +591,45 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
     }
   }
 }
+
+p:has(time) {
+  text-transform: uppercase;
+  time::after {
+    content: "/";
+    padding: 0 0.5rem;
+  }
+}
+
 ::selection {
   background-color: var(--important);
   color: var(--white);
 }
 
-ul {
-  list-style-type: none;
+/* button / a that looks like a button */
+.btn {
+  align-items: center;
+  background: var(--white);
+  display: flex;
+  height: 48px;
+  color: var(--black);
+  border: 1px solid var(--black);
+  stroke: initial;
+  > * {
+    display: grid;
+    place-content: center;
+  }
+  span {
+    border-right: 1px solid var(--black);
+    padding: 14px 16px;
+    height: 100%;
+  }
+  div {
+    height: 100%;
+    width: 48px;
+    height: 48px;
+  }
+  svg > path {
+    stroke: var(--black);
+  }
+  cursor: pointer;
 }
