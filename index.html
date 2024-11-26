@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/general.css" />
-    <link rel="stylesheet" href="./styles/offline.css" />
+    <!-- <link rel="stylesheet" href="./styles/offline.css" /> -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://julesbruins.github.io/look-and-feel-styleguide/dda-gezamenlijk.css"
+      as="style"
+      onload="this.rel='stylesheet'"
     />
     <link rel="stylesheet" href="./styles/components/vacancy-block.css" />
     <script src="./scripts/script.js" defer></script>
@@ -52,11 +54,7 @@
       </header>
       <main>
         <section class="content-block">
-          <h1 class="xxxl">
-            <span>De beste</span>
-            <span>digitale bureaus</span>
-            <span>van nederland</span>
-          </h1>
+          <h1 class="xxxl">De beste digitale bureaus van nederland</h1>
           <p class="md light">
             Dutch Digital Agencies (DDA) verenigt en verbindt
             <span>[nummer]</span>
@@ -65,7 +63,7 @@
           </p>
           <div>
             <a class="btn bold" href="">
-              <span>word lid</span>
+              <p>word lid</p>
               <div>
                 <svg
                   width="16"
@@ -88,8 +86,8 @@
                 </svg>
               </div>
             </a>
-            <a class="link bold" href="">
-              <span>zoek een bureau</span>
+            <a class="link" href="">
+              <p>zoek een bureau</p>
               <div class="arrow">
                 <svg
                   width="16"
@@ -155,7 +153,7 @@
           </div>
         </div>
         <section class="content-block">
-          <span class="label">events</span>
+          <p class="label">events</p>
           <h2 class="xxl uppercase">Hier kan je ons de komende tijd vinden</h2>
           <a href="" class="link">
             alle events
@@ -188,14 +186,14 @@
             />
             <div>
               <article>
-                <span class="label">ddd</span>
+                <p class="label">ddd</p>
                 <p><time datetime="2024-01-01">01 jan 2024</time>amsterdam</p>
                 <h2 class="xxl uppercase">
                   DUTCH DIGITAL DAY: THE 10TH EDITION
                 </h2>
               </article>
               <a href="" class="link">
-                <span>details</span>
+                details
                 <svg
                   width="16"
                   height="16"
@@ -220,12 +218,12 @@
           </div>
           <ul>
             <li>
-              <span class="label">DDA</span>
+              <p class="label">DDA</p>
               <h3 class="lg">Ledenbijeenkomst</h3>
               <div>
                 <p><time datetime="2024-01-01">01 jan 2024</time>Amsterdam</p>
                 <a href="" class="link">
-                  <span>details</span>
+                  details
                   <svg
                     width="16"
                     height="16"
@@ -249,12 +247,12 @@
               </div>
             </li>
             <li>
-              <span class="label">hackathon</span>
+              <p class="label">hackathon</p>
               <h3 class="lg">Maak je eigen game</h3>
               <div>
                 <p><time datetime="2024-01-01">01 jan 2024</time>Amsterdam</p>
                 <a href="" class="link">
-                  <span>details</span>
+                  details
                   <svg
                     width="16"
                     height="16"
@@ -278,12 +276,12 @@
               </div>
             </li>
             <li>
-              <span class="label">serious game</span>
+              <p class="label">serious game</p>
               <h3 class="lg">Adviseer de overheid bij een pandemie</h3>
               <div>
                 <p><time datetime="2024-01-01">01 jan 2024</time>Amsterdam</p>
                 <a href="" class="link">
-                  <span>details</span>
+                  details
                   <svg
                     width="16"
                     height="16"
@@ -307,12 +305,12 @@
               </div>
             </li>
             <li>
-              <span class="label">meetup</span>
+              <p class="label">meetup</p>
               <h3 class="lg">Creative Jam Dutch Design Week</h3>
               <div>
                 <p><time datetime="2024-01-01">01 jan 2024</time>Amsterdam</p>
                 <a href="" class="link">
-                  <span>details</span>
+                  details
                   <svg
                     width="16"
                     height="16"
@@ -336,12 +334,12 @@
               </div>
             </li>
             <li>
-              <span class="label">meetup</span>
+              <p class="label">meetup</p>
               <h3 class="lg">Creative Jam Dutch Design Week</h3>
               <div>
                 <p><time datetime="2024-01-01">01 jan 2024</time>Amsterdam</p>
                 <a href="" class="link">
-                  <span>details</span>
+                  details
                   <svg
                     width="16"
                     height="16"
@@ -367,7 +365,7 @@
           </ul>
         </div>
         <section class="content-block">
-          <span class="label">events</span>
+          <p class="label">events</p>
           <h2 class="xxl uppercase">De beste bureaus zoeken De beste mensen</h2>
           <a href="" class="link">
             alle events
@@ -397,12 +395,12 @@
             <h3 class="lg">Digital Product Designer</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>Valsplat</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>Valsplat</p>
+                <p>32-40 uur</p>
               </div>
-              <span>Nieuwersluis</span>
-              <a href="">
+              <p>Nieuwersluis</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -430,13 +428,13 @@
             <h3 class="lg">Traffic Manager</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>TRIPLE</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>TRIPLE</p>
+                <p>32-40 uur</p>
               </div>
 
-              <span>Alkmaar</span>
-              <a href="">
+              <p>Alkmaar</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -464,12 +462,12 @@
             <h3 class="lg">React Frontend Specialist</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>Valsplat</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>Valsplat</p>
+                <p>32-40 uur</p>
               </div>
-              <span>Alkmaar</span>
-              <a href="">
+              <p>Alkmaar</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -497,13 +495,13 @@
             <h3 class="lg">Design Lead</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>Fabrique</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>Fabrique</p>
+                <p>32-40 uur</p>
               </div>
 
-              <span>Amsterdam</span>
-              <a href="">
+              <p>Amsterdam</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -531,13 +529,13 @@
             <h3 class="lg">Digital Product Designer en meer en wat dan</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>valsplat</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>valsplat</p>
+                <p>32-40 uur</p>
               </div>
 
-              <span>nieuwersluis</span>
-              <a href="">
+              <p>nieuwersluis</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -565,13 +563,13 @@
             <h3 class="lg">React Frontend Specialist</h3>
             <div class="data">
               <div class="group">
-                <span>Eng & NL</span>
-                <span>Valsplat</span>
-                <span>32-40 uur</span>
+                <p>Eng & NL</p>
+                <p>Valsplat</p>
+                <p>32-40 uur</p>
               </div>
 
-              <span>nieuwersluis</span>
-              <a href="">
+              <p>nieuwersluis</p>
+              <a class="link" href="">
                 Bekijken
                 <svg
                   width="16"
@@ -597,7 +595,7 @@
           </li>
         </ul>
         <section class="content-block">
-          <span class="label">publicaties</span>
+          <p class="label">publicaties</p>
           <h2 class="xxl uppercase">het laatste nieuws</h2>
           <a href="" class="link">
             Alle publicaties
