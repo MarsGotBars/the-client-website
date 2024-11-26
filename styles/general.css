@@ -182,6 +182,7 @@ main > * {
   margin: 48px 0;
   &:last-child {
     margin-bottom: 0;
+    border-bottom: none;
   }
 }
 
@@ -570,6 +571,11 @@ p:has(time) {
     content: "/";
     padding: 0 0.5rem;
   }
+}
+
+time{
+  text-transform: uppercase;
+  font-family: var(--secondary-font);
 }
 
 ::selection {

@@ -9,7 +9,7 @@
     } */
   border: 1px solid var(--black);
   border-width: 1px 0;
-  padding: 0 3rem;
+  padding: 0 1rem;
   flex-direction: column;
   li {
     display: flex;
