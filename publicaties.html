@@ -9,7 +9,8 @@
       rel="stylesheet"
       href="https://julesbruins.github.io/look-and-feel-styleguide/dda-gezamenlijk.css"
     />
-    <title>Publicaties</title>
+    <script src="./scripts/script.js" defer></script>
+    <title>PUBLICATIES | DDA</title>
   </head>
 
   <body>
@@ -53,56 +54,42 @@
           <h1 class="xxxl">Publicaties</h1>
         </section>
         <form>
-          <details class="btn">
+          <details class="btn" name="filter">
             <summary>
               onderwerp(multiple)
-              <div>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 3L13.0001 8.0001L8 13.0002"
-                    stroke-width="1.5"
-                    stroke-miterlimit="4.62023"
-                  />
-                  <path
-                    d="M3 8L13 8"
-                    stroke-width="1.5"
-                    stroke-miterlimit="4.62023"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
+              <div></div>
             </summary>
             <div>
               <label>
-                test
-                <input type="checkbox" name="test" id="" />
+                optie 1
+                <input type="checkbox" />
               </label>
               <label>
-                test
-                <input type="checkbox" name="test" id="" />
+                optie 2
+                <input type="checkbox" />
               </label>
               <label>
-                test
-                <input type="checkbox" name="test" id="" />
+                optie 3
+                <input type="checkbox" />
               </label>
             </div>
           </details>
-          <details class="btn">
+          <details class="btn" name="filter">
             <summary>datum</summary>
             <div>
-              <label for=""><input name="date" type="radio" />ei</label>
-              <label for=""><input name="date" type="radio" />sdei </label>
+              <input name="date" id="optie1" type="radio" /><label for="optie1"
+                >optie 1</label
+              >
+              <input name="date" id="optie2" type="radio" /><label for="optie2"
+                >optie 2</label
+              >
+              <input name="date" id="optie3" type="radio" /><label for="optie3"
+                >optie 3</label
+              >
             </div>
           </details>
         </form>
       </main>
     </div>
-    <script src="./scripts/script.js"></script>
   </body>
 </html>

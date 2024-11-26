@@ -81,7 +81,7 @@ a {
   }
 }
 
-.outgoing{
+.outgoing {
   display: flex;
   align-items: center;
   justify-content: end;
@@ -120,9 +120,11 @@ form {
   color: var(--black);
   border: 1px solid var(--black);
   stroke: initial;
-  > * {
-    display: grid;
-    place-content: center;
+  &:not(details) {
+    > * {
+      display: grid;
+      place-content: center;
+    }
   }
   span,
   summary {
@@ -135,41 +137,36 @@ form {
     width: 48px;
     height: 48px;
     position: relative;
-    &::after {
-      content: "";
-      background: var(--black);
-      position: absolute;
-      display: grid;
-      place-self: center;
-      mask: url(../assets/icons/arrow-right.svg) center/contain no-repeat;
-      height: 18px;
-      aspect-ratio: 1;
-    }
-    &.blue {
+
+    /* Only apply the ::after when the element is NOT inside a <details> */
+    &:not(details) {
       &::after {
-        background-color: var(--blue);
+        content: "";
+        background: var(--black);
+        position: absolute;
+        display: grid;
+        place-self: center;
+        mask: url(../assets/icons/arrow-right.svg) center/contain no-repeat;
+        height: 18px;
+        aspect-ratio: 1;
+      }
+      &.blue {
+        &::after {
+          background-color: var(--blue);
+        }
       }
     }
   }
-  svg {
-    height: 18px;
-    width: 18px;
-    path {
-      stroke: var(--black);
-    }
+
+  p {
+    white-space: nowrap;
+    border-right: 1px solid var(--black);
+    padding: 14px 16px;
+    height: 100%;
   }
   cursor: pointer;
 }
 
-details.btn {
-  align-items: flex-start;
-  height: 100%;
-  max-height: 48px;
-  div {
-    height: auto;
-    width: auto;
-  }
-}
 /* button animation, now to find a fitting animation for it... */
 a:hover > div > img {
   transform: translateX(5px);
@@ -296,75 +293,6 @@ main {
 
 /* end of content block */
 
-/* events block */
-.events-block {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--black);
-  border-width: 1px 0;
-  margin-left: -16px;
-  margin-right: -16px;
-  @media (min-width: 660px) {
-    margin-left: -48px;
-    margin-right: -48px;
-  }
-  > div {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid var(--black);
-    padding: 3.375rem;
-    gap: 2rem;
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
-    article {
-      margin-bottom: 3.5rem;
-      /* alle child elementen met een neighbor in de div behalve de laatste */
-      > * + *:not(:last-child) {
-        margin: 1rem 0;
-      }
-    }
-    a {
-      width: fit-content;
-    }
-  }
-  ul {
-    padding: 3rem;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    h3 {
-      text-transform: none;
-    }
-    li {
-      height: fit-content;
-      margin-bottom: 32px;
-      > *:not(:first-child):not(:last-child) {
-        margin: 1rem 0;
-      }
-      div {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem 0;
-        p {
-          display: flex;
-          flex-wrap: wrap;
-        }
-      }
-    }
-    li:last-child {
-      margin: 0;
-    }
-    li + li {
-      padding-top: 2rem;
-      border-top: 1px solid var(--black);
-    }
-  }
-}
-/* end of events block */
-
 header {
   position: sticky;
   top: 0;
@@ -424,6 +352,9 @@ nav {
             margin: 0;
           }
         }
+        a {
+          gap: 0.375rem;
+        }
       }
       &:last-of-type > :first-child {
         margin-bottom: 24px;
@@ -431,6 +362,14 @@ nav {
       li {
         a {
           color: var(--black);
+          width: fit-content;
+          align-items: center;
+          display: flex;
+          &.link {
+            font-weight: 400;
+            color: var(--blue);
+            gap: 0.5rem;
+          }
           &.active {
             color: var(--blue);
             font-weight: 700;
@@ -544,16 +483,6 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
     margin-right: -48px;
   }
 
-  .events-block {
-    > div {
-      flex-direction: row;
-      padding: 3rem;
-      img {
-        width: 50%;
-      }
-    }
-  }
-
   main {
     padding: 0 48px;
     border: 1px solid var(--black);
@@ -602,33 +531,29 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       border: none;
       transform: unset;
       ul {
+        padding: 0;
         height: fit-content;
+        min-height: 48px;
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: end;
-        padding-top: 1rem;
-        gap: clamp(1rem, 3vw, 3rem);
+        align-items: center;
+        gap: clamp(1rem, 2vw, 3rem);
         &:first-of-type {
           border: none;
           text-wrap: nowrap;
           width: 60%;
           justify-content: start;
-          margin: 0 48px;
-          gap: 2rem;
+          margin: 0 clamp(1rem, 2vw, 3rem);
+          gap: clamp(1rem, 2vw, 2rem);
           width: 100%;
           > * {
             margin: initial;
           }
         }
-        li {
-          height: fit-content;
-          a {
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-          }
+        &:last-of-type > :first-child {
+          margin-bottom: initial;
         }
       }
     }
@@ -636,24 +561,10 @@ maar dit zorgt er wel voor dat de scroll header op elke browser werkt :)
       display: none;
     }
   }
-
-  .events-block {
-    flex-direction: row;
-    > div {
-      gap: 0;
-      flex-direction: column;
-      border-bottom: 0;
-      border-right: 1px solid var(--black);
-      max-width: 30rem;
-      img {
-        width: 100%;
-        margin-bottom: 1.5rem;
-      }
-    }
-  }
 }
 
 p:has(time) {
+  font-family: var(--secondary-font);
   text-transform: uppercase;
   time::after {
     content: "/";
@@ -664,35 +575,6 @@ p:has(time) {
 ::selection {
   background-color: var(--important);
   color: var(--white);
-}
-
-/* button / a that looks like a button */
-.btn {
-  align-items: center;
-  background: var(--white);
-  display: flex;
-  height: 48px;
-  color: var(--black);
-  border: 1px solid var(--black);
-  stroke: initial;
-  > * {
-    display: grid;
-    place-content: center;
-  }
-  p {
-    border-right: 1px solid var(--black);
-    padding: 14px 16px;
-    height: 100%;
-  }
-  div {
-    height: 100%;
-    width: 48px;
-    height: 48px;
-  }
-  svg > path {
-    stroke: var(--black);
-  }
-  cursor: pointer;
 }
 
 p.label {
