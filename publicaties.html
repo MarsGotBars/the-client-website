@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/general.css" />
-    <link rel="stylesheet" href="../styles/components/filters.css" />
+    <link rel="stylesheet" href="./styles/general.css" />
+    <link rel="stylesheet" href="./styles/components/filters.css" />
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://julesbruins.github.io/look-and-feel-styleguide/dda-gezamenlijk.css"
+      as="style"
+      onload="this.rel='stylesheet'"
     />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://julesbruins.github.io/look-and-feel-styleguide/dda-gezamenlijk.css"
+      />
+    </noscript>
     <script src="./scripts/script.js" defer></script>
     <title>PUBLICATIES | DDA</title>
   </head>
@@ -57,7 +65,6 @@
           <details class="btn" name="filter">
             <summary>
               onderwerp(multiple)
-              <div></div>
             </summary>
             <div>
               <label>
@@ -75,6 +82,7 @@
             </div>
           </details>
           <details class="btn" name="filter">
+            <div></div>
             <summary>datum</summary>
             <div>
               <input name="date" id="optie1" type="radio" /><label for="optie1"
