@@ -37,5 +37,14 @@
  - Burger menu
   - Streep?  
 
+### Sprint 3
+#### Dingen om na te gaan
+- Filtering (op publicaties)
+- Breekpunt Cards-block (onderaan index)
+- Uitlijning H1 op index (vergelijk deze met het figma bestand)
+- animation-play-state: paused; op Companies-block (index)
+
+#### Dingen om te negeren
+- Burger menu knop styling
 
 De instructie van deze leertaak staan in de [INSTRUCTIONS.md](https://github.com/fdnd-task/the-client-website/blob/main/docs/INSTRUCTIONS.md)
